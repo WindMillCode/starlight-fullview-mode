@@ -19,6 +19,7 @@
     "astro": "^5.6.1",
     "sharp": "^0.34.0",
     "starlight-full-view-mode": "https://gitpkg.vercel.app/WindMillCode/starlight-full-view-mode/packages/starlight-full-view-mode?master",
+    "starlight-versions": "^0.5.2",
     "tailwindcss": "^3.4.7",
     "typescript": "^5.5.4"
   },

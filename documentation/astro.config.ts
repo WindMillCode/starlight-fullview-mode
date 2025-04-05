@@ -2,6 +2,7 @@ import starlight from '@astrojs/starlight'
 import { defineConfig } from 'astro/config';
 import starlightFullViewMode from 'starlight-full-view-mode';
 import tailwind from "@astrojs/tailwind";
+import starlightVersions from 'starlight-versions';
 
 export default defineConfig({
   site:"https://windmillcode.github.io",
@@ -12,6 +13,14 @@ export default defineConfig({
     starlight({
       customCss: ['./src/styles/global.css'],
       plugins: [
+        // starlightVersions({
+        //   current: {
+        //     label: '0.0.1'
+        //   },
+        //   versions: [
+
+        //   ]
+        // }),
         starlightFullViewMode()
       ],
       sidebar: [
