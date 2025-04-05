@@ -14,9 +14,13 @@
   },
   "dependencies": {
     "@astrojs/starlight": "^0.32.5",
+    "@astrojs/starlight-tailwind": "^3.0.1",
+    "@astrojs/tailwind": "^6.0.2",
     "astro": "^5.6.1",
     "sharp": "^0.34.0",
-    "starlight-full-view-mode": "workspace:*"
+    "starlight-full-view-mode": "https://gitpkg.vercel.app/WindMillCode/starlight-full-view-mode/packages/starlight-full-view-mode?master",
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5.5.4"
   },
   "engines": {
     "node": "^18.17.1 || ^20.3.0 || >=21.0.0"

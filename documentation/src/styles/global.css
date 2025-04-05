@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sl-color-white: #bfbfbf;
+  --sl-color-gray-1: #e5e7eb;
+  --sl-color-gray-2: #a1a1a1;
+  --sl-color-gray-3: #808080;
+  --sl-color-gray-4: #666666;
+  --sl-color-gray-5: #4d4d4d;
+  --sl-color-gray-6: #333333;
+  --sl-color-black: rgb(24, 26, 27);
+}

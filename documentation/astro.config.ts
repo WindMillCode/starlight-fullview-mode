@@ -1,15 +1,19 @@
 import starlight from '@astrojs/starlight'
-import { defineConfig } from 'astro/config'
-import starlightFullViewMode from 'starlight-full-view-mode'
-
+import { defineConfig } from 'astro/config';
+import starlightFullViewMode from 'starlight-full-view-mode';
+import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
   site:"https://windmillcode.github.io",
   base:"starlight-full-view-mode",
   outDir: 'docs',
+  output: 'static',
   integrations: [
     starlight({
-      plugins: [starlightFullViewMode()],
+      customCss: ['./src/styles/global.css'],
+      plugins: [
+        starlightFullViewMode()
+      ],
       sidebar: [
         {
           label: 'Start Here',
@@ -19,7 +23,10 @@ export default defineConfig({
       social: {
         github: 'https://github.com/Windmillcode/starlight-full-view-mode',
       },
-      title: 'Starlight Full View Mode',
+      title: 'Starlight Full View Mode'
     }),
-  ],
+    tailwind({
+      applyBaseStyles: false
+    })
+  ]
 })
