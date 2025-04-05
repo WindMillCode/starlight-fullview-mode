@@ -2,9 +2,11 @@ import starlight from '@astrojs/starlight'
 import { defineConfig } from 'astro/config'
 import starlightFullViewMode from 'starlight-full-view-mode'
 
+
 export default defineConfig({
   integrations: [
     starlight({
+
       plugins: [starlightFullViewMode()],
       sidebar: [
         {
