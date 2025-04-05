@@ -68,7 +68,10 @@ export default function starlightFullViewMode(
         )
         const updatedConfig: Partial<StarlightUserConfig> = {
           components: { ...config.components },
-          customCss: ['starlight-full-view-mode/styles/global.css'],
+          customCss: [
+            'starlight-full-view-mode/styles/global.css',
+            ...(config.customCss ?? [])
+          ],
         };
 
         if (!updatedConfig.components) {

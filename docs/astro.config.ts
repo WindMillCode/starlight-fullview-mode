@@ -5,7 +5,7 @@ import starlightFullViewMode from 'starlight-full-view-mode'
 export default defineConfig({
   integrations: [
     starlight({
-      plugins: [starlightFullViewMode({})],
+      plugins: [starlightFullViewMode()],
       sidebar: [
         {
           label: 'Start Here',
