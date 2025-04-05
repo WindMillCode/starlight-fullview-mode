@@ -75,15 +75,16 @@ The plugin accepts the following configuration options:
 #### Examples
 
 Enable the left sidebar and disable the right sidebar:
-
-    starlightFullViewMode({
-      leftSidebarEnabled: true,
-      rightSidebarEnabled: false
-    })
-
+```js
+starlightFullViewMode({
+  leftSidebarEnabled: true,
+  rightSidebarEnabled: false
+})
+```
 Enable the right sidebar and disable the left sidebar:
-
-    starlightFullViewMode({
-      leftSidebarEnabled: false,
-      rightSidebarEnabled: true
-    })
+```js
+starlightFullViewMode({
+  leftSidebarEnabled: false,
+  rightSidebarEnabled: true
+})
+```
