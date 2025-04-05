@@ -27,5 +27,8 @@
     "url": "https://github.com/Windmillcode/starlight-full-view-mode.git",
     "directory": "packages/starlight-full-view-mode"
   },
-  "bugs": "https://github.com/Windmillcode/starlight-full-view-mode/issues"
+  "bugs": "https://github.com/Windmillcode/starlight-full-view-mode/issues",
+  "dependencies": {
+    "astro-icon": "^1.1.5"
+  }
 }
