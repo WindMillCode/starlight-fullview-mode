@@ -1,0 +1,75 @@
+---
+import TableOfContentsComponent from "@astrojs/starlight/components/TableOfContents.astro";
+import mdiIcons from '@iconify-json/mdi/icons.json';
+import { parseSvgPath } from "../utils/common-utils";
+const chevronRight = parseSvgPath(mdiIcons.icons['chevron-right'].body)
+---
+
+<script>
+  import { documentQuerySelector } from "../utils/common-utils";
+  import config from "virtual:starlight-full-view-mode-config";
+
+  let toggleSideBarBtn = documentQuerySelector(".toggle-right-side-bar-btn");
+  if (config.rightSidebarEnabled === false) {
+    toggleSideBarBtn.style.display = "none";
+  }
+  function configureSideBar() {
+    // let rightSideBar = documentQuerySelector(".right-sidebar");
+    let rightSideBar = documentQuerySelector(" div.right-sidebar-panel div > starlight-toc")
+    rightSideBar.style.width = "auto";
+    let rightSidebarContainer = documentQuerySelector(
+      ".right-sidebar-container"
+    );
+    let navBar = rightSidebarContainer.querySelectorAll("nav")[1];
+    let body = documentQuerySelector("body");
+
+    const toggleRightSideBar = (isRightSideBarCollapsed?:boolean) => {
+      // @ts-ignore
+      if (isRightSideBarCollapsed instanceof Event) {
+        isRightSideBarCollapsed =
+          sessionStorage.getItem("rightSideBarCollapsed") === "true";
+      }
+      if (!isRightSideBarCollapsed) {
+        rightSidebarContainer.style.width = "50px";
+        rightSideBar.style.display = "none";
+        [navBar].forEach((element) => {
+          element.style.opacity = "0";
+        })
+        body.classList.add("right-side-bar-collapsed");
+      } else {
+        rightSidebarContainer.style.width = "";
+        rightSideBar.style.display = "";
+        [ navBar].forEach((element) => {
+          element.style.opacity = "1";
+        })
+        body.classList.remove("right-side-bar-collapsed");
+      }
+      sessionStorage.setItem(
+        "rightSideBarCollapsed",
+        isRightSideBarCollapsed ? "false" : "true"
+      );
+    };
+
+    // @ts-ignore
+    toggleSideBarBtn.addEventListener("click", toggleRightSideBar);
+    let isRightSideBarCollapsed =
+      sessionStorage.getItem("rightSideBarCollapsed") === "true";
+    toggleRightSideBar(!isRightSideBarCollapsed);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (config.rightSidebarEnabled) configureSideBar();
+  });
+</script>
+
+<div class="toggle-right-side-bar-btn max-md:hidden">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+  >
+    <path fill="grey" d={chevronRight}></path>
+  </svg>
+</div>
+<TableOfContentsComponent />

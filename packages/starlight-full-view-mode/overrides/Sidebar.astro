@@ -1,22 +1,81 @@
 ---
-import { Icon } from 'astro-icon/components';
-import  Sidebar  from '@astrojs/starlight/components/Sidebar.astro'
-
+import SidebarComponent from "@astrojs/starlight/components/Sidebar.astro";
+import mdiIcons from "@iconify-json/mdi/icons.json";
+import { parseSvgPath } from "../utils/common-utils";
+const chevronLeft = parseSvgPath(mdiIcons.icons["chevron-left"].body);
 ---
-<style>
-	.toggle-main-side-bar-btn{
-		cursor: pointer;
-		border: 1px solid grey;
-		display: inline-flex;
-		justify-content: center;
-		align-items:center;
-		align-self: flex-end
-	}
-</style>
 
+<script>
+  import { documentQuerySelector } from "../utils/common-utils";
+  import config from "virtual:starlight-full-view-mode-config";
 
-<div class="toggle-main-side-bar-btn max-md:hidden ">
-	<Icon name='mdi:chevron-left' />
+  let toggleSideBarBtn = documentQuerySelector(".toggle-left-side-bar-btn");
+  if (config.leftSidebarEnabled === false) {
+    toggleSideBarBtn.style.display = "none";
+  }
+  function configureSideBar() {
+    let mainSidebarContainer = documentQuerySelector(".sidebar-pane");
+    let navBar = mainSidebarContainer.querySelector(
+      "ul.top-level"
+    ) as HTMLElement;
+    let mainFrame = documentQuerySelector(".main-frame");
+    let body = documentQuerySelector("body");
+
+    const toggleLeftSideBar = (isMainSideBarCollapsed?:boolean) => {
+      // @ts-ignore
+      if (isMainSideBarCollapsed instanceof Event) {
+        isMainSideBarCollapsed =
+          sessionStorage.getItem("mainSideBarCollapsed") === "true";
+      }
+      if (!isMainSideBarCollapsed) {
+        mainSidebarContainer.classList.add("sidebar-pane-collapsed");
+        mainSidebarContainer.style.width = "50px";
+        document.documentElement.style.setProperty(
+          "--tablet-navbar-inset-inline-start",
+          "50px"
+        );
+        mainSidebarContainer.style.overflow = "hidden";
+        navBar.style.opacity = "0";
+        mainFrame.style.paddingInlineStart = mainSidebarContainer.style.width;
+        body.classList.add("main-side-bar-collapsed");
+      } else {
+        mainSidebarContainer.classList.remove("sidebar-pane-collapsed");
+        mainSidebarContainer.style.width = "";
+        document.documentElement.style.setProperty(
+          "--tablet-navbar-inset-inline-start",
+          getComputedStyle(mainSidebarContainer).getPropertyValue("width")
+        );
+        mainSidebarContainer.style.overflow = "";
+        navBar.style.opacity = "";
+        mainFrame.style.paddingInlineStart = "";
+        body.classList.remove("main-side-bar-collapsed");
+      }
+      sessionStorage.setItem(
+        "mainSideBarCollapsed",
+        isMainSideBarCollapsed ? "false" : "true"
+      );
+    };
+
+    // @ts-ignore
+    toggleSideBarBtn.addEventListener("click", toggleLeftSideBar);
+    let isMainSideBarCollapsed =
+      sessionStorage.getItem("mainSideBarCollapsed") === "true";
+    toggleLeftSideBar(!isMainSideBarCollapsed);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (config.leftSidebarEnabled) configureSideBar();
+  });
+</script>
+
+<div class="toggle-left-side-bar-btn max-md:hidden">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+  >
+    <path fill="grey" d={chevronLeft}></path>
+  </svg>
 </div>
-<Sidebar />
-
+<SidebarComponent />

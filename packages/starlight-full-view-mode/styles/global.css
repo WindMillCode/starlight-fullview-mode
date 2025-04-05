@@ -1,0 +1,25 @@
+.toggle-left-side-bar-btn,.toggle-right-side-bar-btn {
+  cursor: pointer;
+  border: 1px solid grey;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+:root {
+  --tablet-navbar-inset-inline-start: 50px;
+}
+.right-sidebar {
+  width: auto !important;
+}
+
+.main-pane {
+  flex: 1 0 78%;
+}
+
+.sl-container{
+  width: 100%;
+  max-width: none;
+}

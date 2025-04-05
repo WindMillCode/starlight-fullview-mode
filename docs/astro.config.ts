@@ -5,10 +5,7 @@ import starlightFullViewMode from 'starlight-full-view-mode'
 export default defineConfig({
   integrations: [
     starlight({
-      editLink: {
-        baseUrl: 'https://github.com/Windmillcode/starlight-full-view-mode/edit/main/docs/',
-      },
-      plugins: [starlightFullViewMode()],
+      plugins: [starlightFullViewMode({})],
       sidebar: [
         {
           label: 'Start Here',

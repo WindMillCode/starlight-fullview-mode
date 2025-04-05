@@ -6,7 +6,9 @@
   "author": "Windmillcode",
   "type": "module",
   "exports": {
-    ".": "./index.ts"
+    ".": "./index.ts",
+    "./overrides/*.astro": "./overrides/*.astro",
+    "./styles/*.css": "./styles/*.css"
   },
   "devDependencies": {
     "@astrojs/starlight": "^0.32.5",
@@ -15,6 +17,19 @@
   "peerDependencies": {
     "@astrojs/starlight": ">=0.32"
   },
+  "keywords": [
+    "starlight",
+    "plugin",
+    "zen",
+    "view",
+    "mode",
+    "fullscreen",
+    "full-view",
+    "full-view-mode",
+    "full",
+    "view-modes",
+    "documentation"
+  ],
   "engines": {
     "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
   },
@@ -29,6 +44,7 @@
   },
   "bugs": "https://github.com/Windmillcode/starlight-full-view-mode/issues",
   "dependencies": {
+    "@iconify-json/mdi": "^1.1.68",
     "astro-icon": "^1.1.5"
   }
 }

@@ -2,10 +2,12 @@ import type { StarlightPlugin, StarlightUserConfig } from '@astrojs/starlight/ty
 import icon from "astro-icon";
 import { z } from 'astro/zod';
 import { AstroError } from 'astro/errors';
+import { starlightFullViewModeIntegration } from './libs/integration';
+
+
 
 const starlightFullViewModeConfigSchema = z
   .object({
-
 
     /**
      * Indicates if the ability to toggle the collapse expanded state of the left sidebar is enabled.
@@ -61,41 +63,39 @@ export default function starlightFullViewMode(
     name: 'starlight-full-view-mode',
     hooks: {
       'config:setup'({ addIntegration, config, logger, updateConfig }) {
+        addIntegration(
+          parsedConfig.data.astroIconIntegration
+        )
         const updatedConfig: Partial<StarlightUserConfig> = {
           components: { ...config.components },
-
+          customCss: ['starlight-full-view-mode/styles/global.css'],
         };
 
         if (!updatedConfig.components) {
           updatedConfig.components = {};
         }
 
-        // if (config.components?.PageSidebar) {
-        //   logger.warn(
-        //     'It looks like you already have a `PageSidebar` component override in your Starlight configuration.'
-        //   );
-        //   logger.warn(
-        //     'To render `@astrojs/starlight-full-view-mode`, remove the override for the `PageSidebar` component.\n'
-        //   );
-        // } else {
-        //   updatedConfig.components.PageSidebar =
-        //     'starlight-full-view-mode/overrides/PageSidebar.astro';
-        // }
+        if (config.components?.TableOfContents) {
+          logger.warn(
+            'It looks like you already have a `TableOfContents` component override in your Starlight configuration.\n To render `@astrojs/starlight-full-view-mode`, remove the override for the `TableOfContents` component.\n'
+          );
+
+        } else {
+          updatedConfig.components.TableOfContents =
+            'starlight-full-view-mode/overrides/TableOfContents.astro';
+        }
 
         if (config.components?.Sidebar) {
           logger.warn(
-            'It looks like you already have a `Sidebar` component override in your Starlight configuration.'
+            'It looks like you already have a `Sidebar` component override in your Starlight configuration.\n To render `@astrojs/starlight-full-view-mode`, remove the override for the `Sidebar` component.\n'
           );
-          logger.warn(
-            'To render `@astrojs/starlight-full-view-mode`, remove the override for the `Sidebar` component.\n'
-          );
+
         } else {
           updatedConfig.components.Sidebar =
             'starlight-full-view-mode/overrides/Sidebar.astro';
         }
-        addIntegration(
-          parsedConfig.data.astroIconIntegration
-        )
+
+        addIntegration(starlightFullViewModeIntegration(parsedConfig.data));
         updateConfig(updatedConfig);
 
 
