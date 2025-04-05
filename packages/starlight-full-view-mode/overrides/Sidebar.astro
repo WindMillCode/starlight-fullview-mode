@@ -13,6 +13,7 @@ const chevronLeft = parseSvgPath(mdiIcons.icons["chevron-left"].body);
   if (config.leftSidebarEnabled === false) {
     toggleSideBarBtn.style.display = "none";
   }
+
   function configureSideBar() {
     let mainSidebarContainer = documentQuerySelector(".sidebar-pane");
     let navBar = mainSidebarContainer.querySelector(
@@ -21,7 +22,11 @@ const chevronLeft = parseSvgPath(mdiIcons.icons["chevron-left"].body);
     let mainFrame = documentQuerySelector(".main-frame");
     let body = documentQuerySelector("body");
 
-    const toggleLeftSideBar = (isMainSideBarCollapsed?:boolean) => {
+    // Store the original state before any media query changes
+    let originalState = sessionStorage.getItem("mainSideBarCollapsed") === "true";
+    let stateModifiedByMediaQuery = false;
+
+    const toggleLeftSideBar = (isMainSideBarCollapsed?: boolean) => {
       // @ts-ignore
       if (isMainSideBarCollapsed instanceof Event) {
         isMainSideBarCollapsed =
@@ -50,17 +55,42 @@ const chevronLeft = parseSvgPath(mdiIcons.icons["chevron-left"].body);
         mainFrame.style.paddingInlineStart = "";
         body.classList.remove("main-side-bar-collapsed");
       }
-      sessionStorage.setItem(
-        "mainSideBarCollapsed",
-        isMainSideBarCollapsed ? "false" : "true"
-      );
+
+      if (!stateModifiedByMediaQuery) {
+        sessionStorage.setItem(
+          "mainSideBarCollapsed",
+          isMainSideBarCollapsed ? "false" : "true"
+        );
+      }
     };
 
     // @ts-ignore
     toggleSideBarBtn.addEventListener("click", toggleLeftSideBar);
+
+    const handleResize = () => {
+      const mediaQuery = window.matchMedia('only screen and (max-width: 800px)');
+      if (mediaQuery.matches) {
+        // Save current state before collapsing for mobile
+        originalState = sessionStorage.getItem("mainSideBarCollapsed") === "true";
+        stateModifiedByMediaQuery = true;
+        toggleLeftSideBar(true);
+      } else {
+        // Restore original state when back to desktop
+        stateModifiedByMediaQuery = false;
+        toggleLeftSideBar(!originalState);
+      }
+    };
+
+    // Initialize with current state
     let isMainSideBarCollapsed =
       sessionStorage.getItem("mainSideBarCollapsed") === "true";
     toggleLeftSideBar(!isMainSideBarCollapsed);
+
+    // Set up resize listener
+    window.addEventListener("resize", handleResize);
+
+    // Check on initial load in case we're already in mobile view
+    handleResize();
   }
 
   document.addEventListener("DOMContentLoaded", () => {

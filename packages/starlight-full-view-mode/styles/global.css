@@ -23,3 +23,9 @@
   width: 100%;
   max-width: none;
 }
+
+@media screen and (max-width: 800px) {
+  .toggle-left-side-bar-btn{
+    display: none;
+  }
+}

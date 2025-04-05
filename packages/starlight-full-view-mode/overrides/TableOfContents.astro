@@ -20,7 +20,7 @@ const chevronRight = parseSvgPath(mdiIcons.icons['chevron-right'].body)
     let rightSidebarContainer = documentQuerySelector(
       ".right-sidebar-container"
     );
-    let navBar = rightSidebarContainer.querySelectorAll("nav")[1];
+    let navBar = rightSidebarContainer.querySelectorAll("nav")[1] as HTMLElement;
     let body = documentQuerySelector("body");
 
     const toggleRightSideBar = (isRightSideBarCollapsed?:boolean) => {

@@ -1,5 +1,5 @@
 import type { StarlightPlugin, StarlightUserConfig } from '@astrojs/starlight/types'
-import icon from "astro-icon";
+
 import { z } from 'astro/zod';
 import { AstroError } from 'astro/errors';
 import { starlightFullViewModeIntegration } from './libs/integration';
@@ -26,13 +26,7 @@ const starlightFullViewModeConfigSchema = z
     rightSidebarEnabled: z.boolean().default(true),
 
 
-    astroIconIntegration: z.any().default(
-      icon({
-        include: {
-          mdi: ["chevron-left", "chevron-right", "chevron-down"]
-        }
-      })
-    ),
+
   })
   .default({});
 
@@ -63,9 +57,7 @@ export default function starlightFullViewMode(
     name: 'starlight-full-view-mode',
     hooks: {
       'config:setup'({ addIntegration, config, logger, updateConfig }) {
-        addIntegration(
-          parsedConfig.data.astroIconIntegration
-        )
+
         const updatedConfig: Partial<StarlightUserConfig> = {
           components: { ...config.components },
           customCss: [
@@ -80,7 +72,7 @@ export default function starlightFullViewMode(
 
         if (config.components?.TableOfContents) {
           logger.warn(
-            'It looks like you already have a `TableOfContents` component override in your Starlight configuration.\n To render `@astrojs/starlight-full-view-mode`, remove the override for the `TableOfContents` component.\n'
+            'It looks like you already have a `TableOfContents` component override in your Starlight configuration.\n To render `@windmillcode/starlight-full-view-mode`, remove the override for the `TableOfContents` component.\n'
           );
 
         } else {
@@ -90,7 +82,7 @@ export default function starlightFullViewMode(
 
         if (config.components?.Sidebar) {
           logger.warn(
-            'It looks like you already have a `Sidebar` component override in your Starlight configuration.\n To render `@astrojs/starlight-full-view-mode`, remove the override for the `Sidebar` component.\n'
+            'It looks like you already have a `Sidebar` component override in your Starlight configuration.\n To render `@windmillcode/starlight-full-view-mode`, remove the override for the `Sidebar` component.\n'
           );
 
         } else {
