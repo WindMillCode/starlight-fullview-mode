@@ -4,9 +4,11 @@ import starlightFullViewMode from 'starlight-full-view-mode'
 
 
 export default defineConfig({
+  site:"https://windmillcode.github.io",
+  base:"starlight-full-view-mode",
+  outDir: 'docs',
   integrations: [
     starlight({
-
       plugins: [starlightFullViewMode()],
       sidebar: [
         {
