@@ -57,7 +57,7 @@ export default defineConfig({
       social: {
         github: 'https://github.com/Windmillcode/starlight-full-view-mode',
       },
-      title: 'Starlight Full View Mode'
+      title: 'Starlight FullView Mode'
     }),
     tailwind({
       applyBaseStyles: false

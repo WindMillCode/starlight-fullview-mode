@@ -1,4 +1,4 @@
-# Starlight Full View Mode
+# Starlight FullView Mode
 
 A minimalist plugin that collapses Starlight&#39;s sidebars and expands the main content to full width, creating a distraction-free, fullscreen-like reading experience. Toggle with a single click to focus purely on your content. [Learn more](https://windmillcode.github.io/starlight-full-view-mode/getting-started/)
 
