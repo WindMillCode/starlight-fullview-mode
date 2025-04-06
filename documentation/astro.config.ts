@@ -13,15 +13,19 @@ export default defineConfig({
     starlight({
       customCss: ['./src/styles/global.css'],
       plugins: [
-        // starlightVersions({
-        //   current: {
-        //     label: '0.0.1'
-        //   },
-        //   versions: [
+        starlightVersions({
+          current: {
+            label: '0.0.3'
+          },
+          versions: [
+            {
+              slug: '0.0.1'
+            },
+          ]
+        }),
+        starlightFullViewMode({
 
-        //   ]
-        // }),
-        starlightFullViewMode()
+        })
       ],
       sidebar: [
         {
