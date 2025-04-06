@@ -15,7 +15,8 @@ export default defineConfig({
     starlight({
       customCss: [
         './src/styles/global.css',
-        './src/styles/donate.css'
+        './src/styles/donate.css',
+        './src/styles/mobile-nav.css'
       ],
       plugins: [
 

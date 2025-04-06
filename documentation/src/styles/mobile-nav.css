@@ -1,0 +1,10 @@
+.mobile-preferences .social-icons {
+  flex-direction: column;
+  flex: 0 0;
+  margin-inline-end: 0px;
+}
+
+#view-modes-header-div-mobile {
+  align-items: flex-start;
+  padding: 1em;
+}
