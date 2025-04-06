@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlightFullViewMode from 'starlight-full-view-mode';
 import tailwind from "@astrojs/tailwind";
 import starlightVersions from 'starlight-versions';
+import icon from "astro-icon";
 
 export default defineConfig({
   site:"https://windmillcode.github.io",
@@ -10,9 +11,14 @@ export default defineConfig({
   outDir: 'docs',
   output: 'static',
   integrations: [
+    icon(),
     starlight({
-      customCss: ['./src/styles/global.css'],
+      customCss: [
+        './src/styles/global.css',
+        './src/styles/donate.css'
+      ],
       plugins: [
+
         starlightVersions({
           current: {
             label: '0.1.0'
@@ -23,7 +29,23 @@ export default defineConfig({
             },
           ]
         }),
-        starlightFullViewMode()
+        starlightFullViewMode(),
+        {
+          name:'plugin-overrides',
+          hooks:{
+            setup({ addIntegration, config, logger, updateConfig }) {
+              const updatedConfig = {
+                components: { ...config.components },
+              };
+
+              if (!updatedConfig.components) {
+                updatedConfig.components = {};
+              }
+              updatedConfig.components.SocialIcons = './src/overrides/SocialIcons.astro';
+              updateConfig(updatedConfig);
+            }
+          }
+        }
       ],
       sidebar: [
         {

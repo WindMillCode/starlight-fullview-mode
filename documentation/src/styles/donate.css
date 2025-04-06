@@ -1,0 +1,77 @@
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  margin: 5px 0;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  width: 75%;
+}
+.badge:hover {
+  color: white;
+}
+
+.badge img {
+  height: 20px;
+  margin-right: 8px;
+}
+
+.github-sponsors {
+  background-color: #30363d;
+}
+
+.ko-fi {
+  background-color: #803333;
+}
+
+.liberapay {
+  background-color: #725c04;
+}
+
+.opencollective {
+  background-color: #333;
+}
+
+.community-bridge {
+  background-color: #333;
+}
+
+.tidelift {
+  background-color: #7a5803;
+}
+
+.polar {
+  background-color: #333;
+}
+
+.gofundme {
+  background-color: #013604;
+}
+
+.patreon {
+  background-color: #882328;
+}
+
+.givebutter {
+  background-color: #725c04;
+}
+
+.phonepe {
+  background-color: #7b3fe4;
+}
+
+.paypal {
+  background-color: #333;
+}
+
+.wise {
+  background-color: #333;
+}
+@media (max-width: 1155px) {
+  .badge {
+    width: 100%;
+  }
+}

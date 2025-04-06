@@ -1,0 +1,78 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<a href="https://linktr.ee/windmillcode">
+  <button
+    style="
+      cursor: pointer;
+    "
+    class="bg-neutral-600 text-white font-semibold py-2 px-6 rounded-full hover:bg-green-700 transition-colors"
+  >
+    Follow Us
+  </button>
+</a>
+<a
+  style="
+    text-decoration:unset;
+  "
+  href="/starlight-full-view-mode/donate"
+>
+  <button
+    style="
+      color:var(--sl-color-text-accent);
+      border: 1px solid #444c56;
+      padding: 5px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+    "
+    class="hover:bg-red-900 bg-transparent"
+  >
+    <div
+      style="
+        margin-right:5px;
+        color:red;
+        display: flex;
+      "
+    >
+      <Icon name="mdi:heart" />
+    </div>
+    Donate
+  </button>
+</a>
+<a href="/starlight-full-view-mode/feedback">
+  <button
+    style="
+      cursor: pointer;
+    "
+    class="bg-neutral-600 text-white font-semibold py-2 px-6 rounded-full hover:bg-amber-700 transition-colors"
+  >
+    Feedback
+  </button>
+</a>
+<a
+  href="https://github.com/Windmillcode/starlight-full-view-mode"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button
+    style="
+      cursor: pointer;
+    "
+    class="bg-neutral-800 hover:bg-neutral-700 text-white font-bold py-2 px-4 rounded inline-flex items-center text-sm"
+  >
+    <div
+      style="
+        margin-right:6px;
+        margin-top:1.6px;
+        display: flex;
+      "
+    >
+      <Icon name="mdi:github" />
+    </div>
+    Star on GitHub
+  </button>
+</a>
