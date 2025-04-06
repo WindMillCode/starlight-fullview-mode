@@ -99,10 +99,10 @@ starlightFullViewMode({
 ```
 
 Combine with other plugins:
-__TableofContents.astro__
 ```
 pnpm add starlight-view-modes
 ```
+__TableofContents.astro__
 ```astro
 ---
 import StarlightFullviewModeTableOfContents from 'starlight-fullview-mode/overrides/TableOfContents.astro'
@@ -111,4 +111,31 @@ import StarlightViewModesTableOfContents from 'starlight-view-modes/components/T
 
 <StarlightFullviewModeTableOfContents><slot /></StarlightFullviewModeTableOfContents>
 <StarlightViewModesTableOfContents />
+```
+__astro.config.mjs__
+```js
+import starlight from '@astrojs/starlight'
+import { defineConfig } from 'astro/config';
+import starlightFullViewMode from 'starlight-fullview-mode';
+import starlightViewModes from 'starlight-view-modes';
+...
+
+export default defineConfig({
+  ...
+  integrations: [
+    starlight({
+      ...
+      components: {
+        TableOfContents: "./src/components/TableOfContents.astro",
+      },
+      plugins: [
+        starlightViewModes(),
+        starlightFullViewMode(),
+        ...
+      ]
+      ...
+    }),
+  ]
+})
+
 ```
