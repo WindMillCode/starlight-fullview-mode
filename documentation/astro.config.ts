@@ -4,6 +4,7 @@ import starlightFullViewMode from 'starlight-fullview-mode';
 import tailwind from "@astrojs/tailwind";
 import starlightVersions from 'starlight-versions';
 import icon from "astro-icon";
+import starlightViewModes from 'starlight-view-modes';
 
 export default defineConfig({
   site:"https://windmillcode.github.io",
@@ -16,15 +17,22 @@ export default defineConfig({
       customCss: [
         './src/styles/global.css',
         './src/styles/donate.css',
-        './src/styles/mobile-nav.css'
+        './src/styles/mobile-nav.css',
+        './src/styles/zen-mode.css'
       ],
+      components: {
+        TableOfContents: "./src/components/TableOfContents.astro",
+      },
       plugins: [
-
+        starlightViewModes(),
         starlightVersions({
           current: {
-            label: '0.1.0'
+            label: '0.1.1'
           },
           versions: [
+            {
+              slug: '0.1.0'
+            },
             {
               slug: '0.0.1'
             },

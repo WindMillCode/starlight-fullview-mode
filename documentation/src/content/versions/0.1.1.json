@@ -1,0 +1,12 @@
+{
+  "sidebar": [
+    {
+      "label": "Start Here",
+      "items": [
+        {
+          "slug": "getting-started"
+        }
+      ]
+    }
+  ]
+}

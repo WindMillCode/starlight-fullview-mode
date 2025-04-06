@@ -1,0 +1,9 @@
+body:has(.starlight-view-modes-zen-mode-table-of-contents-footer):has(#starlight__sidebar) .main-frame {
+  padding-top: 10px;
+}
+
+@media (min-width: 72rem) {
+  body:has(.starlight-view-modes-zen-mode-table-of-contents-footer):has( #starlight__sidebar ) main {
+      width: 100% !important;
+  }
+}

@@ -40,6 +40,9 @@ importers:
       starlight-versions:
         specifier: ^0.5.2
         version: 0.5.2(@astrojs/starlight@0.32.5(astro@5.6.1(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1)))
+      starlight-view-modes:
+        specifier: ^0.10.0
+        version: 0.10.0(@astrojs/starlight@0.32.5(astro@5.6.1(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1)))
       tailwindcss:
         specifier: ^3.4.7
         version: 3.4.17
@@ -1474,6 +1477,10 @@ packages:
   iron-webcrypto@1.2.1:
     resolution: {integrity: sha512-feOM6FaSr6rEABp/eDfVseKyTMDt+KGpeB35SkVn9Tyn0CqvVsY3EwI0v5i8nMHyJnzCIQf7nsy3p41TPkJZhg==}
 
+  is-absolute-url@4.0.1:
+    resolution: {integrity: sha512-/51/TKE88Lmm7Gc4/8btclNXWS+g50wXhYJq8HWIBAGUBnoAdRu1aXeh364t/O7wXDAcTJDP8PNuNKWUDWie+A==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+
   is-alphabetical@2.0.1:
     resolution: {integrity: sha512-FWyyY60MeTNyeSRpkM2Iry0G9hpr7/9kD40mD/cGQEuilcZYS4okz8SN2Q6rLCJ8gbCt6fN+rC+6tMGS99LaxQ==}
 
@@ -2295,6 +2302,12 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       '@astrojs/starlight': '>=0.32.0'
+
+  starlight-view-modes@0.10.0:
+    resolution: {integrity: sha512-Kw4O5K2c/qaYwE5ryxbX0XHrTpkyd6HD7RqwGSAoZ8kMiymQeFRn0n0JBu7nRFSvaPtmXN9a/39OwiRR3xerHQ==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@astrojs/starlight': '>=0.32'
 
   stream-replace-string@2.0.0:
     resolution: {integrity: sha512-TlnjJ1C0QrmxRNrON00JvaFFlNh5TTG00APw23j74ET7gkQpTASi6/L2fuiav8pzK715HXtUeClpBTw2NPSn6w==}
@@ -4291,6 +4304,8 @@ snapshots:
 
   iron-webcrypto@1.2.1: {}
 
+  is-absolute-url@4.0.1: {}
+
   is-alphabetical@2.0.1: {}
 
   is-alphanumerical@2.0.1:
@@ -5545,6 +5560,18 @@ snapshots:
       yaml: 2.7.1
     transitivePeerDependencies:
       - supports-color
+
+  starlight-view-modes@0.10.0(@astrojs/starlight@0.32.5(astro@5.6.1(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1))):
+    dependencies:
+      '@astrojs/starlight': 0.32.5(astro@5.6.1(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1))
+      '@pagefind/default-ui': 1.3.0
+      is-absolute-url: 4.0.1
+      pagefind: 1.3.0
+      picomatch: 4.0.2
+      rehype-parse: 9.0.1
+      rehype-stringify: 10.0.1
+      unified: 11.0.5
+      unist-util-visit: 5.0.0
 
   stream-replace-string@2.0.0: {}
 

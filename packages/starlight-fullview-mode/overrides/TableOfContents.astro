@@ -1,26 +1,35 @@
 ---
 import TableOfContentsComponent from "@astrojs/starlight/components/TableOfContents.astro";
-import mdiIcons from '@iconify-json/mdi/icons.json';
+import mdiIcons from "@iconify-json/mdi/icons.json";
 import { parseSvgPath } from "../utils/common-utils";
-const chevronRight = parseSvgPath(mdiIcons.icons['chevron-right'].body)
+const chevronRight = parseSvgPath(mdiIcons.icons["chevron-right"].body);
 ---
 
 <script>
-  import { documentQuerySelector } from "../utils/common-utils";
+  import {
+    documentQuerySelector,
+    documentQuerySelectorAll,
+  } from "../utils/common-utils";
   import config from "virtual:starlight-fullview-mode-config";
 
   let toggleSideBarBtn = documentQuerySelector(".toggle-right-side-bar-btn");
 
   function configureSideBar() {
-    let rightSideBar = documentQuerySelector(" div.right-sidebar-panel div > starlight-toc")
-    rightSideBar.style.width = "auto";
+    let rightSideBars = documentQuerySelectorAll(
+      ".right-sidebar-panel.sl-container *:not(.toggle-right-side-bar-btn)"
+    );
+    rightSideBars.forEach((rightSideBar) => {
+      rightSideBar.style.width = "auto";
+    });
     let rightSidebarContainer = documentQuerySelector(
       ".right-sidebar-container"
     );
-    let navBar = rightSidebarContainer.querySelectorAll("nav")[1] as HTMLElement;
+    let navBar = rightSidebarContainer.querySelectorAll(
+      "nav"
+    )[1] as HTMLElement;
     let body = documentQuerySelector("body");
 
-    const toggleRightSideBar = (isRightSideBarCollapsed?:boolean) => {
+    const toggleRightSideBar = (isRightSideBarCollapsed?: boolean) => {
       // @ts-ignore
       if (isRightSideBarCollapsed instanceof Event) {
         isRightSideBarCollapsed =
@@ -28,17 +37,23 @@ const chevronRight = parseSvgPath(mdiIcons.icons['chevron-right'].body)
       }
       if (!isRightSideBarCollapsed) {
         rightSidebarContainer.style.width = "50px";
-        rightSideBar.style.display = "none";
+
+        rightSideBars.forEach((rightSideBar) => {
+          rightSideBar.style.display = "none";
+        });
         [navBar].forEach((element) => {
           element.style.opacity = "0";
-        })
+        });
         body.classList.add("right-side-bar-collapsed");
       } else {
         rightSidebarContainer.style.width = "";
-        rightSideBar.style.display = "";
-        [ navBar].forEach((element) => {
+        rightSideBars.forEach((rightSideBar) => {
+          rightSideBar.style.display = "";
+        });
+
+        [navBar].forEach((element) => {
           element.style.opacity = "1";
-        })
+        });
         body.classList.remove("right-side-bar-collapsed");
       }
       sessionStorage.setItem(
