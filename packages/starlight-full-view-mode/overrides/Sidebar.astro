@@ -10,9 +10,7 @@ const chevronLeft = parseSvgPath(mdiIcons.icons["chevron-left"].body);
   import config from "virtual:starlight-full-view-mode-config";
 
   let toggleSideBarBtn = documentQuerySelector(".toggle-left-side-bar-btn");
-  if (config.leftSidebarEnabled === false) {
-    toggleSideBarBtn.style.display = "none";
-  }
+
 
   function configureSideBar() {
     let mainSidebarContainer = documentQuerySelector(".sidebar-pane");

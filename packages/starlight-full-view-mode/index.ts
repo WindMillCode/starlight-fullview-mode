@@ -70,25 +70,32 @@ export default function starlightFullViewMode(
           updatedConfig.components = {};
         }
 
-        if (config.components?.TableOfContents ) {
-          logger.warn(
-            'It looks like you already have a `TableOfContents` component override in your Starlight configuration.\n To render `@windmillcode/starlight-full-view-mode`, remove the override for the `TableOfContents` component.\n'
-          );
+        if(parsedConfig.data.leftSidebarEnabled){
+          if (config.components?.Sidebar) {
+            logger.warn(
+              'It looks like you already have a `Sidebar` component override in your Starlight configuration.\n To render `@windmillcode/starlight-full-view-mode`, remove the override for the `Sidebar` component.\n'
+            );
 
-        } else if (parsedConfig.data.leftSidebarEnabled) {
-          updatedConfig.components.TableOfContents =
-            'starlight-full-view-mode/overrides/TableOfContents.astro';
+          } else {
+            updatedConfig.components.Sidebar =
+              'starlight-full-view-mode/overrides/Sidebar.astro';
+          }
+        }
+        
+        if (parsedConfig.data.rightSidebarEnabled) {
+          if (config.components?.TableOfContents ) {
+            logger.warn(
+              'It looks like you already have a `TableOfContents` component override in your Starlight configuration.\n To render `@windmillcode/starlight-full-view-mode`, remove the override for the `TableOfContents` component.\n'
+            );
+
+          } else {
+            updatedConfig.components.TableOfContents =
+              'starlight-full-view-mode/overrides/TableOfContents.astro';
+          }
         }
 
-        if (config.components?.Sidebar) {
-          logger.warn(
-            'It looks like you already have a `Sidebar` component override in your Starlight configuration.\n To render `@windmillcode/starlight-full-view-mode`, remove the override for the `Sidebar` component.\n'
-          );
 
-        } else if (parsedConfig.data.rightSidebarEnabled) {
-          updatedConfig.components.Sidebar =
-            'starlight-full-view-mode/overrides/Sidebar.astro';
-        }
+
 
         addIntegration(starlightFullViewModeIntegration(parsedConfig.data));
         updateConfig(updatedConfig);

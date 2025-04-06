@@ -23,9 +23,7 @@ export default defineConfig({
             },
           ]
         }),
-        starlightFullViewMode({
-
-        })
+        starlightFullViewMode()
       ],
       sidebar: [
         {
