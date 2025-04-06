@@ -15,7 +15,7 @@ export default defineConfig({
       plugins: [
         starlightVersions({
           current: {
-            label: '0.0.3'
+            label: '0.1.0'
           },
           versions: [
             {
