@@ -97,3 +97,18 @@ starlightFullViewMode({
   rightSidebarEnabled: true
 })
 ```
+
+Combine with other plugins:
+__TableofContents.astro__
+```
+pnpm add starlight-view-modes
+```
+```astro
+---
+import StarlightFullviewModeTableOfContents from 'starlight-fullview-mode/overrides/TableOfContents.astro'
+import StarlightViewModesTableOfContents from 'starlight-view-modes/components/TableOfContents.astro'
+---
+
+<StarlightFullviewModeTableOfContents><slot /></StarlightFullviewModeTableOfContents>
+<StarlightViewModesTableOfContents />
+```
