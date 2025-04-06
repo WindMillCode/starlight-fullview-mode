@@ -5,7 +5,7 @@ import type { StarlightFullViewModeConfig } from '..';
 export function vitePluginStarlightFullViewModeConfig(
   config: StarlightFullViewModeConfig
 ): VitePlugin {
-  const moduleId = 'virtual:starlight-full-view-mode-config';
+  const moduleId = 'virtual:starlight-fullview-mode-config';
   const resolvedModuleId = `\0${moduleId}`;
   const moduleContent = `export default ${JSON.stringify(config)}`;
 
@@ -16,7 +16,7 @@ export function vitePluginStarlightFullViewModeConfig(
   );
 
   return {
-    name: 'vite-plugin-starlight-full-view-mode-config',
+    name: 'vite-plugin-starlight-fullview-mode-config',
 
     load(id) {
       if (id === resolvedModuleId) {

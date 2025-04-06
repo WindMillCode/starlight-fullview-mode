@@ -34,9 +34,9 @@ importers:
       sharp:
         specifier: ^0.34.0
         version: 0.34.0
-      starlight-full-view-mode:
+      starlight-fullview-mode:
         specifier: workspace:*
-        version: link:../packages/starlight-full-view-mode
+        version: link:../packages/starlight-fullview-mode
       starlight-versions:
         specifier: ^0.5.2
         version: 0.5.2(@astrojs/starlight@0.32.5(astro@5.6.1(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1)))
@@ -47,7 +47,7 @@ importers:
         specifier: ^5.5.4
         version: 5.8.3
 
-  packages/starlight-full-view-mode:
+  packages/starlight-fullview-mode:
     dependencies:
       '@iconify-json/mdi':
         specifier: ^1.1.68

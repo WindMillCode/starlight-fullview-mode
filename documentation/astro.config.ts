@@ -1,13 +1,13 @@
 import starlight from '@astrojs/starlight'
 import { defineConfig } from 'astro/config';
-import starlightFullViewMode from 'starlight-full-view-mode';
+import starlightFullViewMode from 'starlight-fullview-mode';
 import tailwind from "@astrojs/tailwind";
 import starlightVersions from 'starlight-versions';
 import icon from "astro-icon";
 
 export default defineConfig({
   site:"https://windmillcode.github.io",
-  base:"starlight-full-view-mode",
+  base:"starlight-fullview-mode",
   outDir: 'docs',
   output: 'static',
   integrations: [
@@ -55,7 +55,7 @@ export default defineConfig({
         },
       ],
       social: {
-        github: 'https://github.com/Windmillcode/starlight-full-view-mode',
+        github: 'https://github.com/Windmillcode/starlight-fullview-mode',
       },
       title: 'Starlight Fullview Mode'
     }),

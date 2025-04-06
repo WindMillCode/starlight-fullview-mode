@@ -49,19 +49,19 @@ export default function starlightFullViewMode(
       `The provided plugin configuration is invalid.\n${parsedConfig.error.issues
         .map((issue) => issue.message)
         .join('\n')}`,
-      `See the error report above for more informations.\n\nIf you believe this is a bug, please file an issue at https://github.com/WindMillCode/starlight-full-view-mode/issues`
+      `See the error report above for more informations.\n\nIf you believe this is a bug, please file an issue at https://github.com/WindMillCode/starlight-fullview-mode/issues`
     );
   }
 
   return {
-    name: 'starlight-full-view-mode',
+    name: 'starlight-fullview-mode',
     hooks: {
       'config:setup'({ addIntegration, config, logger, updateConfig }) {
 
         const updatedConfig: Partial<StarlightUserConfig> = {
           components: { ...config.components },
           customCss: [
-            'starlight-full-view-mode/styles/global.css',
+            'starlight-fullview-mode/styles/global.css',
             ...(config.customCss ?? [])
           ],
         };
@@ -73,24 +73,24 @@ export default function starlightFullViewMode(
         if(parsedConfig.data.leftSidebarEnabled){
           if (config.components?.Sidebar) {
             logger.warn(
-              'It looks like you already have a `Sidebar` component override in your Starlight configuration.\n To render `@windmillcode/starlight-full-view-mode`, remove the override for the `Sidebar` component.\n'
+              'It looks like you already have a `Sidebar` component override in your Starlight configuration.\n To render `@windmillcode/starlight-fullview-mode`, remove the override for the `Sidebar` component.\n'
             );
 
           } else {
             updatedConfig.components.Sidebar =
-              'starlight-full-view-mode/overrides/Sidebar.astro';
+              'starlight-fullview-mode/overrides/Sidebar.astro';
           }
         }
-        
+
         if (parsedConfig.data.rightSidebarEnabled) {
           if (config.components?.TableOfContents ) {
             logger.warn(
-              'It looks like you already have a `TableOfContents` component override in your Starlight configuration.\n To render `@windmillcode/starlight-full-view-mode`, remove the override for the `TableOfContents` component.\n'
+              'It looks like you already have a `TableOfContents` component override in your Starlight configuration.\n To render `@windmillcode/starlight-fullview-mode`, remove the override for the `TableOfContents` component.\n'
             );
 
           } else {
             updatedConfig.components.TableOfContents =
-              'starlight-full-view-mode/overrides/TableOfContents.astro';
+              'starlight-fullview-mode/overrides/TableOfContents.astro';
           }
         }
 

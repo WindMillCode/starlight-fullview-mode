@@ -1,13 +1,13 @@
 # Starlight Fullview Mode
 
-A minimalist plugin that collapses Starlight&#39;s sidebars and expands the main content to full width, creating a distraction-free, fullscreen-like reading experience. Toggle with a single click to focus purely on your content. [Learn more](https://windmillcode.github.io/starlight-full-view-mode/getting-started/)
+A minimalist plugin that collapses Starlight&#39;s sidebars and expands the main content to full width, creating a distraction-free, fullscreen-like reading experience. Toggle with a single click to focus purely on your content. [Learn more](https://windmillcode.github.io/starlight-fullview-mode/getting-started/)
 
 
 ## License
 
 Licensed under the MIT License, Copyright © Windmillcode.
 
-See [LICENSE](https://github.com/Windmillcode/starlight-full-view-mode/blob/main/LICENSE) for more information.
+See [LICENSE](https://github.com/Windmillcode/starlight-fullview-mode/blob/main/LICENSE) for more information.
 
 Prerequisites
 -------------
@@ -17,20 +17,20 @@ You will need to have a Starlight website set up. If you don’t have one yet, y
 Installation
 ------------
 
-1.  `starlight-full-view-mode` is a Starlight [plugin](https://starlight.astro.build/reference/plugins/). Install it by running the following command in your terminal:
+1.  `starlight-fullview-mode` is a Starlight [plugin](https://starlight.astro.build/reference/plugins/). Install it by running the following command in your terminal:
 
 
     NPM
 
-        npm install starlight-full-view-mode
+        npm install starlight-fullview-mode
 
     PNPM
 
-        pnpm add starlight-full-view-mode
+        pnpm add starlight-fullview-mode
 
     YARN
 
-        yarn add starlight-full-view-mode
+        yarn add starlight-fullview-mode
 
 2.  Configure the plugin in your Starlight [configuration](https://starlight.astro.build/reference/configuration/#plugins) in the `astro.config.mjs` file.
 
@@ -38,7 +38,7 @@ Installation
 ```js
 import starlight from '@astrojs/starlight'
 import { defineConfig } from 'astro/config'
-import starlightFullViewMode from 'starlight-full-view-mode'
+import starlightFullViewMode from 'starlight-fullview-mode'
 
 export default defineConfig({
   integrations: [
