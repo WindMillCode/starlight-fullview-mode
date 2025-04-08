@@ -48,13 +48,16 @@ const chevronLeft = parseSvgPath(mdiIcons.icons["chevron-left"].body);
       } else {
         mainSidebarContainer.classList.remove("sidebar-pane-collapsed");
         mainSidebarContainer.style.width =  config.leftSidebarExpandedWidth ?? "";
+        const mediaQuery = window.matchMedia('only screen and (max-width: 800px)');
         document.documentElement.style.setProperty(
           "--tablet-navbar-inset-inline-start",
-          config.leftSidebarExpandedWidth ?? getComputedStyle(mainSidebarContainer).getPropertyValue("width")
+          mediaQuery.matches ? "var(--sl-sidebar-width)" : getComputedStyle(mainSidebarContainer).getPropertyValue("width") ??"var(--sl-sidebar-width)"
         );
+
+        console.log(mediaQuery.matches)
         document.documentElement.style.setProperty(
           "--sl-content-inline-start",
-          config.leftSidebarExpandedWidth ?? "var(--sl-sidebar-width)"
+          mediaQuery.matches ? "0px" : config.leftSidebarExpandedWidth ??"var(--sl-sidebar-width)"
         );
         mainSidebarContainer.style.overflow = "";
         navBar.style.opacity = "";

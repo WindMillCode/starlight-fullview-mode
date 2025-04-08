@@ -27,7 +27,7 @@ export default defineConfig({
         starlightViewModes(),
         starlightVersions({
           current: {
-            label: '0.2.1'
+            label: '0.2.2'
           },
           versions: [
             {
