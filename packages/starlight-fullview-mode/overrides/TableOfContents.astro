@@ -36,7 +36,7 @@ const chevronRight = parseSvgPath(mdiIcons.icons["chevron-right"].body);
           sessionStorage.getItem("rightSideBarCollapsed") === "true";
       }
       if (!isRightSideBarCollapsed) {
-        rightSidebarContainer.style.width = "50px";
+        rightSidebarContainer.style.width = config.rightSideBarCollapsedWidth;
 
         rightSideBars.forEach((rightSideBar) => {
           rightSideBar.style.display = "none";
@@ -46,7 +46,7 @@ const chevronRight = parseSvgPath(mdiIcons.icons["chevron-right"].body);
         });
         body.classList.add("right-side-bar-collapsed");
       } else {
-        rightSidebarContainer.style.width = "";
+        rightSidebarContainer.style.width = config.rightSidebarExpandedWidth ??"";
         rightSideBars.forEach((rightSideBar) => {
           rightSideBar.style.display = "";
         });

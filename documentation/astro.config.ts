@@ -27,9 +27,12 @@ export default defineConfig({
         starlightViewModes(),
         starlightVersions({
           current: {
-            label: '0.1.1'
+            label: '0.2.1'
           },
           versions: [
+            {
+              slug: '0.1.1'
+            },
             {
               slug: '0.1.0'
             },
@@ -38,7 +41,14 @@ export default defineConfig({
             },
           ]
         }),
-        starlightFullViewMode(),
+        starlightFullViewMode({
+          // to have the sidebars appear until the user collapses
+          // leftSidebarCollapsedWidth: "0px",
+          // rightSidebarCollapsedWidth: "0px",
+          // to never let the sidebars appear
+          // leftSidebarExpandedWidth: "0px",
+          // rightSidebarExpandedWidth: "0px",
+        }),
         {
           name:'plugin-overrides',
           hooks:{
@@ -59,7 +69,10 @@ export default defineConfig({
       sidebar: [
         {
           label: 'Start Here',
-          items: [{ slug: 'getting-started' }],
+          items: [
+            { slug: 'getting-started' },
+            { slug: 'configuration' }
+          ],
         },
       ],
       social: {

@@ -32,10 +32,14 @@ const chevronLeft = parseSvgPath(mdiIcons.icons["chevron-left"].body);
       }
       if (!isMainSideBarCollapsed) {
         mainSidebarContainer.classList.add("sidebar-pane-collapsed");
-        mainSidebarContainer.style.width = "50px";
+        mainSidebarContainer.style.width = config.leftSidebarCollapsedWidth;
         document.documentElement.style.setProperty(
           "--tablet-navbar-inset-inline-start",
-          "50px"
+          config.leftSidebarCollapsedWidth
+        );
+        document.documentElement.style.setProperty(
+          "--sl-content-inline-start",
+          config.leftSidebarCollapsedWidth ?? "var(--sl-sidebar-width)"
         );
         mainSidebarContainer.style.overflow = "hidden";
         navBar.style.opacity = "0";
@@ -43,14 +47,18 @@ const chevronLeft = parseSvgPath(mdiIcons.icons["chevron-left"].body);
         body.classList.add("main-side-bar-collapsed");
       } else {
         mainSidebarContainer.classList.remove("sidebar-pane-collapsed");
-        mainSidebarContainer.style.width = "";
+        mainSidebarContainer.style.width =  config.leftSidebarExpandedWidth ?? "";
         document.documentElement.style.setProperty(
           "--tablet-navbar-inset-inline-start",
-          getComputedStyle(mainSidebarContainer).getPropertyValue("width")
+          config.leftSidebarExpandedWidth ?? getComputedStyle(mainSidebarContainer).getPropertyValue("width")
+        );
+        document.documentElement.style.setProperty(
+          "--sl-content-inline-start",
+          config.leftSidebarExpandedWidth ?? "var(--sl-sidebar-width)"
         );
         mainSidebarContainer.style.overflow = "";
         navBar.style.opacity = "";
-        mainFrame.style.paddingInlineStart = "";
+        mainFrame.style.paddingInlineStart = config.leftSidebarExpandedWidth ??"";
         body.classList.remove("main-side-bar-collapsed");
       }
 

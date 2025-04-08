@@ -8,25 +8,47 @@ import { starlightFullViewModeIntegration } from './libs/integration';
 
 const starlightFullViewModeConfigSchema = z
   .object({
-
     /**
-     * Indicates if the ability to toggle the collapse expanded state of the left sidebar is enabled.
+     * Whether the left sidebar is enabled and can be toggled.
      *
-     * @type {boolean}
      * @default true
      */
     leftSidebarEnabled: z.boolean().default(true),
 
     /**
-     * Indicates if the ability to toggle the collapse expanded state of the left sidebar is enabled.
+     * Whether the right sidebar is enabled and can be toggled.
      *
-     * @type {boolean}
      * @default true
      */
     rightSidebarEnabled: z.boolean().default(true),
 
+    /**
+     * CSS width value applied when the left sidebar is expanded.
+     *
+     * @default null
+     */
+    leftSidebarExpandedWidth: z.string().nullable().default(null),
 
+    /**
+     * CSS width value applied when the right sidebar is expanded.
+     *
+     * @default null
+     */
+    rightSidebarExpandedWidth: z.string().nullable().default(null),
 
+    /**
+     * CSS width value applied when the left sidebar is collapsed.
+     *
+     * @default 50px
+     */
+    leftSidebarCollapsedWidth: z.string().default("50px"),
+
+    /**
+     * CSS width value applied when the right sidebar is collapsed.
+     *
+     * @default 50px
+     */
+    rightSidebarCollapsedWidth: z.string().default("50px"),
   })
   .default({});
 
@@ -93,9 +115,6 @@ export default function starlightFullViewMode(
               'starlight-fullview-mode/overrides/TableOfContents.astro';
           }
         }
-
-
-
 
         addIntegration(starlightFullViewModeIntegration(parsedConfig.data));
         updateConfig(updatedConfig);
