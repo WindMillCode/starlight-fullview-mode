@@ -54,7 +54,6 @@ const chevronLeft = parseSvgPath(mdiIcons.icons["chevron-left"].body);
           mediaQuery.matches ? "var(--sl-sidebar-width)" : getComputedStyle(mainSidebarContainer).getPropertyValue("width") ??"var(--sl-sidebar-width)"
         );
 
-        console.log(mediaQuery.matches)
         document.documentElement.style.setProperty(
           "--sl-content-inline-start",
           mediaQuery.matches ? "0px" : config.leftSidebarExpandedWidth ??"var(--sl-sidebar-width)"

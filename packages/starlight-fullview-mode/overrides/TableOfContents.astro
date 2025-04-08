@@ -16,7 +16,7 @@ const chevronRight = parseSvgPath(mdiIcons.icons["chevron-right"].body);
 
   function configureSideBar() {
     let rightSideBars = documentQuerySelectorAll(
-      ".right-sidebar-panel.sl-container *:not(.toggle-right-side-bar-btn)"
+      ".right-sidebar-panel > .sl-container > *:not(.toggle-right-side-bar-btn)"
     );
     rightSideBars.forEach((rightSideBar) => {
       rightSideBar.style.width = "auto";
@@ -36,7 +36,7 @@ const chevronRight = parseSvgPath(mdiIcons.icons["chevron-right"].body);
           sessionStorage.getItem("rightSideBarCollapsed") === "true";
       }
       if (!isRightSideBarCollapsed) {
-        rightSidebarContainer.style.width = config.rightSideBarCollapsedWidth;
+        rightSidebarContainer.style.width = config.rightSidebarCollapsedWidth;
 
         rightSideBars.forEach((rightSideBar) => {
           rightSideBar.style.display = "none";
