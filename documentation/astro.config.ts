@@ -1,20 +1,23 @@
 import starlight from '@astrojs/starlight'
 import { defineConfig } from 'astro/config';
 import starlightFullViewMode from 'starlight-fullview-mode';
-import tailwind from "@astrojs/tailwind";
 import starlightVersions from 'starlight-versions';
 import icon from "astro-icon";
 import starlightViewModes from 'starlight-view-modes';
+
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site:"https://windmillcode.github.io",
   base:"starlight-fullview-mode",
   outDir: 'docs',
   output: 'static',
+
   integrations: [
     icon(),
     starlight({
       customCss: [
+        './src/styles/tailwind.css',
         './src/styles/global.css',
         './src/styles/donate.css',
         './src/styles/mobile-nav.css',
@@ -41,14 +44,7 @@ export default defineConfig({
             },
           ]
         }),
-        starlightFullViewMode({
-          // to have the sidebars appear until the user collapses
-          // leftSidebarCollapsedWidth: "0px",
-          // rightSidebarCollapsedWidth: "0px",
-          // to never let the sidebars appear
-          // leftSidebarExpandedWidth: "0px",
-          // rightSidebarExpandedWidth: "0px",
-        }),
+        starlightFullViewMode(),
         {
           name:'plugin-overrides',
           hooks:{
@@ -75,13 +71,14 @@ export default defineConfig({
           ],
         },
       ],
-      social: {
-        github: 'https://github.com/Windmillcode/starlight-fullview-mode',
-      },
+      social: [
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/Windmillcode/starlight-fullview-mode' },
+      ],
       title: 'Starlight Fullview Mode'
-    }),
-    tailwind({
-      applyBaseStyles: false
     })
-  ]
+  ],
+
+  vite: {
+    plugins: [tailwindcss()]
+  }
 })
