@@ -6,6 +6,29 @@
   align-items: center;
   align-self: flex-end;
   cursor: pointer;
+  border-radius: 4px;
+
+  &:hover {
+    border-color: black;
+
+    & > svg > path {
+      fill: black;
+    }
+  }
+}
+
+html[data-theme=dark] .toggle-left-side-bar-btn:hover,
+html[data-theme=dark] .toggle-right-side-bar-btn:hover {
+  border-color: white;
+
+  & > svg > path {
+    fill: white;
+  }
+}
+
+.main-side-bar-collapsed .toggle-left-side-bar-btn,
+.right-side-bar-collapsed .toggle-right-side-bar-btn {
+    transform: scaleX(-1);
 }
 
 :root {
