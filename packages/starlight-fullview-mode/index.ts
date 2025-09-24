@@ -49,6 +49,13 @@ const starlightFullViewModeConfigSchema = z
      * @default 50px
      */
     rightSidebarCollapsedWidth: z.string().default("50px"),
+
+    /**
+     * Emit component override warnings.
+     *
+     * @default true
+     */
+    overrideWarnEnabled: z.boolean().default(true),
   })
   .default({});
 
@@ -93,7 +100,7 @@ export default function starlightFullViewMode(
         }
 
         if(parsedConfig.data.leftSidebarEnabled){
-          if (config.components?.Sidebar) {
+          if (config.components?.Sidebar && parsedConfig.data.overrideWarnEnabled) {
             logger.warn(
               'It looks like you already have a `Sidebar` component override in your Starlight configuration.\n To render `@windmillcode/starlight-fullview-mode`, remove the override for the `Sidebar` component.\n'
             );
@@ -105,7 +112,7 @@ export default function starlightFullViewMode(
         }
 
         if (parsedConfig.data.rightSidebarEnabled) {
-          if (config.components?.TableOfContents ) {
+          if (config.components?.TableOfContents && parsedConfig.data.overrideWarnEnabled) {
             logger.warn(
               'It looks like you already have a `TableOfContents` component override in your Starlight configuration.\n To render `@windmillcode/starlight-fullview-mode`, remove the override for the `TableOfContents` component.\n'
             );
