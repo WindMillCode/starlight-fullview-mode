@@ -8,8 +8,8 @@
   cursor: pointer;
 }
 
-.main-side-bar-collapsed .toggle-left-side-bar-btn,
-.right-side-bar-collapsed .toggle-right-side-bar-btn{
+.main-side-bar-collapsed .toggle-left-side-bar-btn.rotates,
+.right-side-bar-collapsed .toggle-right-side-bar-btn.rotates{
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);

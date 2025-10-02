@@ -64,6 +64,10 @@ const chevronRight = parseSvgPath(mdiIcons.icons["chevron-right"].body);
 
     // @ts-ignore
     toggleSideBarBtn.addEventListener("click", toggleRightSideBar);
+    if (config.rotateSidebarToggleWhenClosed) {
+      toggleSideBarBtn.classList.add("rotates");
+    }
+    
     let isRightSideBarCollapsed =
       sessionStorage.getItem("rightSideBarCollapsed") === "true";
     toggleRightSideBar(!isRightSideBarCollapsed);

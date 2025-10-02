@@ -51,6 +51,8 @@ export default defineConfig({
           // to never let the sidebars appear
           // leftSidebarExpandedWidth: "0px",
           // rightSidebarExpandedWidth: "0px",
+          // rotate the toggle caret buttons when sidebars closed
+          // rotateSidebarToggleWhenClosed: true,
         }),
         {
           name:'plugin-overrides',
