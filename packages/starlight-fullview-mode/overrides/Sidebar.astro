@@ -11,7 +11,6 @@ const chevronLeft = parseSvgPath(mdiIcons.icons["chevron-left"].body);
 
   let toggleSideBarBtn = documentQuerySelector(".toggle-left-side-bar-btn");
 
-
   function configureSideBar() {
     let mainSidebarContainer = documentQuerySelector(".sidebar-pane");
     let navBar = mainSidebarContainer.querySelector(
@@ -74,7 +73,10 @@ const chevronLeft = parseSvgPath(mdiIcons.icons["chevron-left"].body);
 
     // @ts-ignore
     toggleSideBarBtn.addEventListener("click", toggleLeftSideBar);
-
+    if (config.rotateSidebarToggleWhenClosed) {
+      toggleSideBarBtn.classList.add("rotates");
+    }
+    
     const handleResize = () => {
       const mediaQuery = window.matchMedia('only screen and (max-width: 800px)');
       if (mediaQuery.matches) {
