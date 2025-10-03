@@ -92,7 +92,7 @@ The plugin accepts the following configuration options:
 
 ### `rotateSidebarToggleWhenClosed`
 - **Type:** `boolean`
-- **Default:** `"true"`
+- **Default:** `true`
 - **Description:** Rotate the toggle caret buttons when sidebars closed
 
 #### Examples
