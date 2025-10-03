@@ -55,7 +55,7 @@ const starlightFullViewModeConfigSchema = z
      *
      * @default false
      */
-    rotateSidebarToggleWhenClosed: z.boolean().default(false),
+    rotateSidebarToggleWhenClosed: z.boolean().default(true),
   })
   .default({});
 
