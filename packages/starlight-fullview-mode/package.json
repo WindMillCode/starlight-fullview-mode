@@ -1,6 +1,6 @@
 {
   "name": "starlight-fullview-mode",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "license": "MIT",
   "description": "A minimalist plugin that collapses Starlight&#39;s sidebars and expands the main content to full width, creating a distraction-free, fullscreen-like reading experience. Toggle with a single click to focus purely on your content.",
   "author": "Windmillcode",
@@ -36,7 +36,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/Windmillcode/starlight-fullview-mode",
+  "homepage": "https://windmillcode.github.io/starlight-fullview-mode",
   "repository": {
     "type": "git",
     "url": "https://github.com/Windmillcode/starlight-fullview-mode.git",
