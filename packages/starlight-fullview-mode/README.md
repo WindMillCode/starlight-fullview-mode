@@ -95,6 +95,12 @@ The plugin accepts the following configuration options:
 - **Default:** `true`
 - **Description:** Rotate the toggle caret buttons when sidebars closed
 
+### `overrideWarnEnabled`
+- **Type:** `boolean`
+- **Default:** `false`
+- **Description:** Controls whether the integration warns if you've overriden a component it wishes to override.
+
+
 #### Examples
 
 Enable the left sidebar and disable the right sidebar:
