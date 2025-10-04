@@ -30,9 +30,12 @@ export default defineConfig({
         starlightViewModes(),
         starlightVersions({
           current: {
-            label: '0.2.5'
+            label: '0.2.6'
           },
           versions: [
+            {
+              slug: '0.2.5'
+            },
             {
               slug: '0.2.3'
             },
