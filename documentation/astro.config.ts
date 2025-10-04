@@ -30,9 +30,12 @@ export default defineConfig({
         starlightViewModes(),
         starlightVersions({
           current: {
-            label: '0.2.3'
+            label: '0.2.5'
           },
           versions: [
+            {
+              slug: '0.2.3'
+            },
             {
               slug: '0.1.1'
             },
@@ -51,6 +54,8 @@ export default defineConfig({
           // to never let the sidebars appear
           // leftSidebarExpandedWidth: "0px",
           // rightSidebarExpandedWidth: "0px",
+          // rotate the toggle caret buttons when sidebars closed
+          // rotateSidebarToggleWhenClosed: true,
         }),
         {
           name:'plugin-overrides',

@@ -61,16 +61,39 @@ Configuration
 The plugin accepts the following configuration options:
 
 ### `leftSidebarEnabled`
-
-*   **Type:** `boolean`
-*   **Default:** `true`
-*   **Description:** Controls whether the left sidebar can be toggled between collapsed and expanded states.
+- **Type:** `boolean`
+- **Default:** `true`
+- **Description:** Controls whether the left sidebar can be toggled between collapsed and expanded states.
 
 ### `rightSidebarEnabled`
+- **Type:** `boolean`
+- **Default:** `true`
+- **Description:** Controls whether the right sidebar (table of contents) can be toggled between collapsed and expanded states.
 
-*   **Type:** `boolean`
-*   **Default:** `true`
-*   **Description:** Controls whether the right sidebar (table of contents) can be toggled between collapsed and expanded states.
+### `leftSidebarExpandedWidth`
+- **Type:** `string | null`
+- **Default:** `null` (uses default theme width)
+- **Description:** Custom CSS width value for the left sidebar when expanded (e.g., `"250px"`, `"20%"`).
+
+### `rightSidebarExpandedWidth`
+- **Type:** `string | null`
+- **Default:** `null` (uses default theme width)
+- **Description:** Custom CSS width value for the right sidebar when expanded.
+
+### `leftSidebarCollapsedWidth`
+- **Type:** `string`
+- **Default:** `"50px"`
+- **Description:** Custom CSS width value for the left sidebar when collapsed.
+
+### `rightSidebarCollapsedWidth`
+- **Type:** `string`
+- **Default:** `"50px"`
+- **Description:** Custom CSS width value for the right sidebar when collapsed.
+
+### `rotateSidebarToggleWhenClosed`
+- **Type:** `boolean`
+- **Default:** `true`
+- **Description:** Rotate the toggle caret buttons when sidebars closed
 
 #### Examples
 

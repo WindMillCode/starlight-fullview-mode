@@ -34,10 +34,16 @@ The plugin accepts the following configuration options:
 - **Default:** `"50px"`
 - **Description:** Custom CSS width value for the right sidebar when collapsed.
 
+### `rotateSidebarToggleWhenClosed`
+- **Type:** `boolean`
+- **Default:** `true`
+- **Description:** Rotate the toggle caret buttons when sidebars closed
+
 ### `overrideWarnEnabled`
 - **Type:** `boolean`
 - **Default:** `true`
 - **Description:** Controls whether the integration warns if you've overriden a component it wishes to override.
+
 
 ## Examples
 
@@ -66,6 +72,8 @@ starlightFullViewMode({
   // to never let the sidebars appear
   leftSidebarExpandedWidth: "0px",
   rightSidebarExpandedWidth: "0px",
+  // rotate the toggle caret buttons when sidebars closed
+  rotateSidebarToggleWhenClosed: true,
 })
 
 ```

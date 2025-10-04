@@ -51,11 +51,19 @@ const starlightFullViewModeConfigSchema = z
     rightSidebarCollapsedWidth: z.string().default("50px"),
 
     /**
+     * Rotate the toggle caret buttons when sidebars closed
+     *
+     * @default false
+     */
+    rotateSidebarToggleWhenClosed: z.boolean().default(true),
+    
+    /**
      * Emit component override warnings.
      *
      * @default true
      */
     overrideWarnEnabled: z.boolean().default(true),
+    
   })
   .default({});
 
